@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Verification</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .container { max-width: 300px; margin: auto; }
+        input, button { width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Log in here to see your special deal:</h3>
+    <input type="text" id="userInput" placeholder="Enter your log in ID here first.">
+    <button onclick="checkCode()">Then click here to see your special offer.</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    function checkCode() {
+        // 1. LIST OF VALID CODES
+        const validCodes = ["CODE123", "SECRET99", "OPENZONE", "ALPHA5"];
+        
+        // 2. GET USER INPUT
+        const input = document.getElementById("userInput").value;
+        const message = document.getElementById("message");
+
+        // 3. COMPARE AND REDIRECT
+        if (validCodes.includes(input)) {
+            message.style.color = "green";
+            message.innerHTML = "Code accepted! Redirecting...";
+            
+            // Redirect to a new page
+            window.location.href = "success.html"; // <-- CHANGE THIS URL
+        } else {
+            message.style.color = "red";
+            message.innerHTML = "Invalid log in ID. Please try again.";
+        }
+    }
+</script>
+
+</body>
+</html>
